@@ -34,3 +34,53 @@ final class TMDBTests: XCTestCase {
     }
 
 }
+
+//final class MoviesViewModelTests: XCTestCase {
+//    var viewModel: MoviesViewModel!
+//    var mockUseCase: MockMoviesUseCase!
+//
+//    override func setUpWithError() throws {
+//        mockUseCase = MockMoviesUseCase()
+//        viewModel = MoviesViewModel(useCase: mockUseCase)
+//    }
+//
+//    override func tearDownWithError() throws {
+//        viewModel = nil
+//        mockUseCase = nil
+//    }
+//
+//    func testGetPopularMovies_SuccessfulResponse() async throws {
+//        // Arrange
+//        mockUseCase.mockResponse = MoviesResponse(results: [Results(id: 1, title: "Test Movie", poster_path: "/test.jpg")])
+//
+//        // Act
+//        await viewModel.getPopularMovies()
+//
+//        // Assert
+//        XCTAssertNotNil(viewModel.results)
+//        XCTAssertEqual(viewModel.results?.first?.title, "Test Movie")
+//    }
+//
+//    func testGetPopularMovies_FailureResponse() async throws {
+//        // Arrange
+//        mockUseCase.mockError = NetworkError.requestFailed
+//
+//        // Act
+//        await viewModel.getPopularMovies()
+//
+//        // Assert
+//        XCTAssertNil(viewModel.results)
+//    }
+//}
+//
+//class MockMoviesUseCase: MoviesUseCaseProtocol {
+//    var mockResponse: MoviesResponse?
+//    var mockError: Error?
+//
+//    func getPopularMovies(request: PopularMoviesRequest) async throws -> MoviesResponse? {
+//        if let error = mockError {
+//            throw error
+//        }
+//        return mockResponse
+//    }
+//}
