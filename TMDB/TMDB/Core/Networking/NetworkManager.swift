@@ -37,6 +37,11 @@ extension Error {
 }
 
 class NetworkManager {
+    static func isConnectedToNetwork() async -> Bool {
+        let networkReachability = NetworkReachabilityManager()
+        return networkReachability?.isReachable ?? false
+    }
+    
     func request<T: Decodable>(
         method: HTTPMethod,
         url: String,

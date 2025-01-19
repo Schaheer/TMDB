@@ -21,12 +21,21 @@ class MoviesViewController: BaseVC {
     func setupViews() {
         currentView = view as? MoviesView
         
+        showHUD()
         viewModel.getPopularMovies()
     }
     
     func setupBindings() {
         viewModel.resultsCompletion = { [weak self] results in
             self?.currentView.collectionView.reloadData()
+        }
+        
+        viewModel.showHUD = { [weak self] showHUD in
+            showHUD ? self?.showHUD() : self?.hideHUD()
+        }
+        
+        viewModel.error = { [weak self] error in
+            self?.showAlert(with: error)
         }
     }
 }

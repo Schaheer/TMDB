@@ -30,15 +30,13 @@ class MovieDetailView: UIView {
             imageView.kf.setImage(with: url, placeholder: UIImage() /*UIImage(systemName: "popcorn.fill")*/, options: [.transition(.fade(1))])
         }
         
-        titleLabel.text = "Title: \(detail?.title ?? "")"
-        overviewLabel.text = "Overview: \(detail?.overview ?? "")"
-        releaseDateLabel.text = "Release Date: \(detail?.release_date ?? "")"
+        titleLabel.text = "Title: \(detail?.title ?? "-")"
+        overviewLabel.text = "Overview: \(detail?.overview ?? "-")"
+        releaseDateLabel.text = "Release Date: \(detail?.release_date ?? "-")"
         revenueLabel.text = "Revenue: $\(detail?.revenue ?? 0)"
         budgetLabel.text = "Budget: $\(detail?.budget ?? 0)"
-        genresLabel.text = "Genres: \(detail?.genres?.map({ $0.name ?? "" }).joined(separator: ", ") ?? "")"
-        statusLabel.text = "Status: \(detail?.status ?? "")"
+        genresLabel.text = "Genres: \(detail?.genres?.map({ $0.name ?? "" }).joined(separator: ", ") ?? "-")"
+        statusLabel.text = "Status: \(detail?.status ?? "-")"
     }
     
 }
-
-

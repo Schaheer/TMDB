@@ -1,20 +1,30 @@
 PODS:
   - Alamofire (5.10.2)
+  - EmptyDataSet-Swift (5.0.0)
   - Kingfisher (8.1.3)
+  - SVProgressHUD (2.3.1):
+    - SVProgressHUD/Core (= 2.3.1)
+  - SVProgressHUD/Core (2.3.1)
 
 DEPENDENCIES:
   - Alamofire
+  - EmptyDataSet-Swift
   - Kingfisher
+  - SVProgressHUD
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - EmptyDataSet-Swift
     - Kingfisher
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
+  EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   Kingfisher: f2af9028b16baf9dc6c07c570072bc41cbf009ef
+  SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
 
-PODFILE CHECKSUM: bdbb64be06845983e45b69417330b76488d1836c
+PODFILE CHECKSUM: 484bbd8b126dd62bd7ba3cc359d7e77fc9ca281c
 
 COCOAPODS: 1.15.2

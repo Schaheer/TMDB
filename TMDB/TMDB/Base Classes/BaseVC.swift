@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class BaseVC: UIViewController {
     
@@ -13,5 +14,26 @@ class BaseVC: UIViewController {
         super.viewDidLoad()
         
         
+    }
+    
+    func showAlert(with title: String) {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default))
+            
+            self?.present(alert, animated: true)
+        }
+    }
+    
+    func showHUD() {
+        DispatchQueue.main.async {
+            SVProgressHUD.show()
+        }
+    }
+    
+    func hideHUD() {
+        DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+        }
     }
 }

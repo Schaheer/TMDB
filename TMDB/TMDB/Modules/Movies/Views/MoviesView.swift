@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EmptyDataSet_Swift
 
 class MoviesView: UIView {
     
@@ -18,6 +19,7 @@ class MoviesView: UIView {
         super.awakeFromNib()
         
         setupCollectionView()
+        setEmptyData()
     }
     
     func setupCollectionView() {
@@ -32,6 +34,15 @@ class MoviesView: UIView {
         layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
         
         collectionView.collectionViewLayout = layout
+    }
+    
+    func setEmptyData() {
+        collectionView.emptyDataSetView { view in
+            let noDataString = NSMutableAttributedString(string: "No Data!")
+            
+            view.titleLabelString(noDataString)
+                .shouldFadeIn(true)
+        }
     }
     
 }
