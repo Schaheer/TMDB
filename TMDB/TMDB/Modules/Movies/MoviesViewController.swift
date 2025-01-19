@@ -8,21 +8,39 @@
 import UIKit
 
 class MoviesViewController: BaseVC {
-
+    var viewModel: MoviesViewModelProtocol!
+    var currentView: MoviesView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupViews()
+        setupBindings()
+    }
+    
+    func setupViews() {
+        currentView = view as? MoviesView
         
+        viewModel.getPopularMovies()
+    }
+    
+    func setupBindings() {
+        viewModel.resultsCompletion = { [weak self] results in
+            self?.currentView.collectionView.reloadData()
+        }
     }
 }
 
 extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        viewModel.results?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(MovieCell.self)", for: indexPath) as? MovieCell {
+            let movie = viewModel.results?[indexPath.row]
+            
+            cell.setCell(with: movie?.poster_path ?? "")
             
             return cell
         }
@@ -31,6 +49,8 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        MoviesRouter().navigateToMovieDetail(from: self)
+        let movie = viewModel.results?[indexPath.row]
+        
+        MoviesRouter().navigateToMovieDetail(from: self, movieID: movie?.id)
     }
 }

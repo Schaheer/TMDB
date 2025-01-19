@@ -9,8 +9,14 @@ import Foundation
 
 class MovieDetailRouter {
     
-    static func createModule() -> MovieDetailViewController {
+    static func createModule(with movieID: Int?) -> MovieDetailViewController {
+        let repository = MovieDetailRepository()
+        let useCase = MovieDetailUseCase(repository: repository)
+        let viewModel = MovieDetailViewModel(useCase: useCase)
+        
         let vc = MovieDetailViewController.instantiateFromMainStoryboard()
+        vc.viewModel = viewModel
+        vc.movieID = movieID
         
         return vc
     }

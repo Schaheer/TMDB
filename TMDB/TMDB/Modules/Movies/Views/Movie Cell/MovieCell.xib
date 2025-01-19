@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="232" height="254"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="id6-El-qwh" secondAttribute="trailing" id="JJC-7c-EUT"/>
                             <constraint firstAttribute="bottom" secondItem="id6-El-qwh" secondAttribute="bottom" id="MFz-1X-f4K"/>
@@ -45,13 +44,9 @@
             <size key="customSize" width="232" height="254"/>
             <connections>
                 <outlet property="imageView" destination="id6-El-qwh" id="ymL-7g-Azw"/>
+                <outlet property="mainView" destination="27D-C0-Esj" id="zKN-nx-l5m"/>
             </connections>
             <point key="canvasLocation" x="175.57251908396947" y="91.549295774647888"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
